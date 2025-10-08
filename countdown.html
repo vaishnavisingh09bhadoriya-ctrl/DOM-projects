@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: plum;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+        #button {
+            background-color: rgb(205, 255, 214);
+            border: 1px solid black;
+            padding: 15px;
+            border-radius: 12px;
+            margin-left: 60px;
+            margin-right: 60px;
+
+
+            
+        }
+        #input {
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>COUNTDOWN TIMER</h1>
+    <h5> Set your time</h5>
+    <input id="input" type="number"> <br><br><br>
+    <button id="button">Start</button>
+    <p id="message"></p>
+    
+   
+    
+</body>
+<script>
+
+const input = document.getElementById('input');
+const button = document.getElementById('button');
+const message = document.getElementById('message');
+let timer = null;
+
+button.addEventListener('click', function () {
+    let timeleft = parseInt(input.value, 10);
+    if (isNaN(timeleft) || timeleft < 0) {
+        message.textContent = "Please enter a valid positive number.";
+        return;
+    }
+    clearInterval(timer); // Clear any previous timer
+    message.textContent = timeleft;
+
+    timer = setInterval(function () {
+        timeleft--;
+        if (timeleft >= 0) {
+            message.textContent = timeleft;
+        }
+        if (timeleft < 0) {
+            clearInterval(timer);
+            message.textContent = "Times Up";
+        }
+    }, 1000);
+});
+
+</script>
+</html>

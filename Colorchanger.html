@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Project</title>
+    <style>
+        .box {
+            border: 1px solid black;
+            padding: 12px;
+       text-align: center;
+       margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Learning</h1>
+  <div id="parent">  <div class="box" id="yellow">yellow</div>
+<div class="box" id="blue">Blue</div>  
+<div class="box" id="pink">pink</div>  
+<div class="box" id="red">Red</div></div>
+</body>
+<script>
+    const button = document.querySelectorAll('.box')
+    const body = document.querySelector('body')
+    button.forEach(function (buttons) {
+        console.log(buttons);
+
+        buttons.addEventListener('click', function (e) {
+            if (e.target.id === "yellow") {
+                body.style.backgroundColor = e.target.id
+                
+            }
+             if (e.target.id === "blue") {
+                body.style.backgroundColor = e.target.id
+                
+            }
+             if (e.target.id === "pink") {
+                body.style.backgroundColor = e.target.id
+                
+            }
+             if (e.target.id === "red") {
+                body.style.backgroundColor = e.target.id
+                
+            }
+            
+        })
+        
+    })
+    
+
+
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmi calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: chartreuse;
+            color: deeppink;
+            font-family: 'Poppins', sans-serif;
+            align-content: center;
+        }
+        .container {
+            text-align: center;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>BMI Calculator</h1><hr>
+    <h2>Here, give your height and weight and BMI calculator will tell you if your weight is good for your height</h2>
+    <hr><form id="forum">
+    Height: <input type="text" id="height"><br><br><br>
+
+    Weight : <input type="text" id="weight"><br><br>
+    <button id="button">calculate</button>
+    <p id="results"></p>
+    
+    </form></div>
+
+
+    
+</body>
+<script>
+    const form = document.querySelector('#forum');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const height = parseInt(document.querySelector('#height').value);
+        const weight = parseInt(document.querySelector('#weight').value);
+        const results = document.querySelector('#results');
+        if (isNaN(height) || height <= 0) {
+            results.innerHTML = `Please give a valid height (${height})`;
+        }
+        else if (isNaN(weight) || weight <= 0) {
+            results.innerHTML = `Please give a valid weight (${weight})`;
+        }
+        else {
+            const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+            results.innerHTML = `<span>${bmi}</span>`;
+        }
+    });
+
+</script>
+</html>
